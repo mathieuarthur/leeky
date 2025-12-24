@@ -1,6 +1,12 @@
-name: Run Leeky
+name: Generate Workdir
 
 on:
+  workflow_call:
+    secrets:
+      LW_LOGIN:
+        required: true
+      LW_PASSWORD:
+        required: true
   workflow_dispatch:
 
 permissions:
