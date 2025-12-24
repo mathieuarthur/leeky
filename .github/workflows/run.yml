@@ -2,8 +2,6 @@ name: Run Leeky
 
 on:
   workflow_dispatch:
-  push:
-    branches: [ main ]
 
 jobs:
   run:
