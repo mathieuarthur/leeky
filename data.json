@@ -1,0 +1,1206 @@
+{
+  "farmer": {
+    "id": 124617,
+    "login": "LeMecWeird",
+    "team": {
+      "id": 9399,
+      "name": "AlphaNef",
+      "level": 25,
+      "emblem_changed": 1765840014,
+      "chat": 34100,
+      "member_level": 2
+    },
+    "name": "LeMecWeird",
+    "talent": 100,
+    "leeks": {
+      "131080": {
+        "id": 131080,
+        "name": "LeakWeird",
+        "capital": 0,
+        "level": 41,
+        "talent": 81,
+        "skin": 1,
+        "hat": {
+          "id": 2390859,
+          "template": 69,
+          "hat_template": 1,
+          "quantity": 1
+        },
+        "ai": 451916,
+        "weapon": null,
+        "title": [],
+        "metal": false,
+        "face": 0,
+        "life": 260,
+        "strength": 250,
+        "wisdom": 30,
+        "agility": 0,
+        "resistance": 150,
+        "science": 0,
+        "magic": 0,
+        "frequency": 100,
+        "cores": 1,
+        "ram": 6,
+        "tp": 10,
+        "mp": 3,
+        "total_life": 360,
+        "total_strength": 270,
+        "total_wisdom": 30,
+        "total_agility": 40,
+        "total_resistance": 150,
+        "total_science": 0,
+        "total_magic": 0,
+        "total_frequency": 140,
+        "total_cores": 1,
+        "total_ram": 10,
+        "total_tp": 10,
+        "total_mp": 3
+      }
+    },
+    "avatar_changed": 1766087543,
+    "talent_more": 0,
+    "victories": 280,
+    "draws": 37,
+    "defeats": 248,
+    "ratio": "1.13",
+    "connected": true,
+    "last_connection": 1766614202,
+    "register_date": 1765833696,
+    "fight_history": [
+      {
+        "id": 50763858,
+        "leeks1": [
+          131220,
+          131221,
+          130394,
+          131208,
+          130865,
+          130983,
+          130510,
+          131086,
+          131080,
+          131192
+        ],
+        "leeks2": [],
+        "winner": 3,
+        "status": 2,
+        "date": 1766607301,
+        "context": 3,
+        "type": 3,
+        "farmer1": -1,
+        "farmer2": -1,
+        "team1": -1,
+        "team2": -1,
+        "composition1": -1,
+        "composition2": -1,
+        "chests": 0,
+        "comments": 0,
+        "trophies": 0,
+        "levelups": 2,
+        "rareloot": 2,
+        "result": "defeat"
+      },
+      {
+        "id": 50763187,
+        "leeks1": [
+          131007,
+          130983,
+          130510,
+          131086,
+          131080,
+          130970
+        ],
+        "leeks2": [],
+        "winner": 1,
+        "status": 2,
+        "date": 1766600101,
+        "context": 3,
+        "type": 3,
+        "farmer1": -1,
+        "farmer2": -1,
+        "team1": -1,
+        "team2": -1,
+        "composition1": -1,
+        "composition2": -1,
+        "chests": 0,
+        "comments": 0,
+        "trophies": 0,
+        "levelups": 2,
+        "rareloot": 0,
+        "result": "defeat"
+      },
+      {
+        "id": 50761006,
+        "leeks1": [
+          130943,
+          131007,
+          130394,
+          131086,
+          131080,
+          130970
+        ],
+        "leeks2": [],
+        "winner": 2,
+        "status": 2,
+        "date": 1766592901,
+        "context": 3,
+        "type": 3,
+        "farmer1": -1,
+        "farmer2": -1,
+        "team1": -1,
+        "team2": -1,
+        "composition1": -1,
+        "composition2": -1,
+        "chests": 0,
+        "comments": 0,
+        "trophies": 0,
+        "levelups": 2,
+        "rareloot": 1,
+        "result": "defeat"
+      },
+      {
+        "id": 50758546,
+        "leeks1": [
+          40385,
+          131007,
+          131073,
+          131086,
+          131080,
+          130970
+        ],
+        "leeks2": [],
+        "winner": 1,
+        "status": 2,
+        "date": 1766585701,
+        "context": 3,
+        "type": 3,
+        "farmer1": -1,
+        "farmer2": -1,
+        "team1": -1,
+        "team2": -1,
+        "composition1": -1,
+        "composition2": -1,
+        "chests": 0,
+        "comments": 0,
+        "trophies": 0,
+        "levelups": 1,
+        "rareloot": 0,
+        "result": "defeat"
+      },
+      {
+        "id": 50755783,
+        "leeks1": [
+          130943,
+          131007,
+          130394,
+          131086,
+          131080,
+          130970
+        ],
+        "leeks2": [],
+        "winner": 1,
+        "status": 2,
+        "date": 1766578501,
+        "context": 3,
+        "type": 3,
+        "farmer1": -1,
+        "farmer2": -1,
+        "team1": -1,
+        "team2": -1,
+        "composition1": -1,
+        "composition2": -1,
+        "chests": 0,
+        "comments": 0,
+        "trophies": 0,
+        "levelups": 1,
+        "rareloot": 0,
+        "result": "defeat"
+      },
+      {
+        "id": 50755000,
+        "leeks1": [
+          {
+            "id": 128002,
+            "name": "YouAndMe"
+          }
+        ],
+        "leeks2": [
+          {
+            "id": 131080,
+            "name": "LeakWeird"
+          }
+        ],
+        "winner": 0,
+        "status": 2,
+        "date": 1766575821,
+        "context": 3,
+        "type": 0,
+        "farmer1": -1,
+        "farmer2": -1,
+        "team1": -1,
+        "team2": -1,
+        "composition1": -1,
+        "composition2": -1,
+        "chests": 0,
+        "comments": 0,
+        "trophies": 0,
+        "levelups": 0,
+        "rareloot": 0,
+        "result": "draw"
+      }
+    ],
+    "tournaments": [],
+    "admin": false,
+    "moderator": false,
+    "country": null,
+    "godfather": null,
+    "godsons": [],
+    "color": "",
+    "banned": false,
+    "won_solo_tournaments": 0,
+    "won_farmer_tournaments": 0,
+    "won_team_tournaments": 0,
+    "won_battle_royale": 0,
+    "total_level": 41,
+    "leek_count": 1,
+    "in_garden": true,
+    "fights": 0,
+    "team_fights": 0,
+    "github": null,
+    "website": null,
+    "forum_messages": 1,
+    "didactitiel_seen": true,
+    "contributor": false,
+    "trophies": 59,
+    "points": 407,
+    "language": "en",
+    "title": [],
+    "show_ai_lines": false,
+    "ranking": 23760,
+    "verified": true,
+    "tutorial_progress": 10,
+    "group": null,
+    "supervised_group": null,
+    "bank_enabled": true,
+    "public_chat_enabled": true,
+    "buy_fights_enabled": true,
+    "tournaments_enabled": true,
+    "br_enabled": true,
+    "equipment_enabled": true,
+    "can_create_leek": true,
+    "godsons_level": 0,
+    "pass": true,
+    "habs": 710277,
+    "crystals": 0,
+    "weapons": [
+      {
+        "id": 2389327,
+        "template": 37,
+        "quantity": 1,
+        "time": 1766272162
+      },
+      {
+        "id": 2396217,
+        "template": 108,
+        "quantity": 1,
+        "time": 1766364740
+      },
+      {
+        "id": 2397659,
+        "template": 42,
+        "quantity": 1,
+        "time": 1766548505
+      }
+    ],
+    "chips": [
+      {
+        "id": 2390857,
+        "template": 1,
+        "quantity": 1,
+        "time": 1766186721
+      },
+      {
+        "id": 2391641,
+        "template": 19,
+        "quantity": 1,
+        "time": 1766186554
+      },
+      {
+        "id": 2391811,
+        "template": 2,
+        "quantity": 1,
+        "time": 1766090057
+      },
+      {
+        "id": 2392924,
+        "template": 7,
+        "quantity": 1,
+        "time": 1766088504
+      },
+      {
+        "id": 2394753,
+        "template": 9,
+        "quantity": 1,
+        "time": 1766548822
+      },
+      {
+        "id": 2395373,
+        "template": 18,
+        "quantity": 1,
+        "time": 1766267802
+      },
+      {
+        "id": 2395386,
+        "template": 6,
+        "quantity": 1,
+        "time": 1766268079
+      },
+      {
+        "id": 2396208,
+        "template": 5,
+        "quantity": 1,
+        "time": 1766364639
+      }
+    ],
+    "ais": [
+      {
+        "id": 452341,
+        "name": "attack",
+        "valid": true,
+        "folder": 30819,
+        "version": 4,
+        "strict": false,
+        "total_lines": 33,
+        "total_chars": 769,
+        "entrypoint": true,
+        "entrypoints": [
+          452339
+        ],
+        "scenario": null,
+        "includes_ids": []
+      },
+      {
+        "id": 452289,
+        "name": "buff",
+        "valid": true,
+        "folder": 30674,
+        "version": 4,
+        "strict": false,
+        "total_lines": 20,
+        "total_chars": 418,
+        "entrypoint": false,
+        "entrypoints": [
+          451916,
+          452339
+        ],
+        "scenario": 35237,
+        "includes_ids": []
+      },
+      {
+        "id": 451842,
+        "name": "calculateDistance",
+        "valid": true,
+        "folder": 30674,
+        "version": 4,
+        "strict": false,
+        "total_lines": 6,
+        "total_chars": 153,
+        "entrypoint": false,
+        "entrypoints": [
+          452339,
+          451916
+        ],
+        "scenario": 35237,
+        "includes_ids": []
+      },
+      {
+        "id": 451919,
+        "name": "enemy",
+        "valid": true,
+        "folder": 30679,
+        "version": 4,
+        "strict": false,
+        "total_lines": 33,
+        "total_chars": 748,
+        "entrypoint": false,
+        "entrypoints": [
+          451916,
+          452339
+        ],
+        "scenario": null,
+        "includes_ids": []
+      },
+      {
+        "id": 451916,
+        "name": "Main",
+        "valid": true,
+        "folder": 0,
+        "version": 4,
+        "strict": false,
+        "total_lines": 239,
+        "total_chars": 5239,
+        "entrypoint": true,
+        "entrypoints": [],
+        "scenario": 35237,
+        "includes_ids": [
+          451842,
+          451918,
+          451919,
+          452286,
+          452289
+        ]
+      },
+      {
+        "id": 452343,
+        "name": "movement",
+        "valid": true,
+        "folder": 30819,
+        "version": 4,
+        "strict": false,
+        "total_lines": 81,
+        "total_chars": 1859,
+        "entrypoint": true,
+        "entrypoints": [
+          452339
+        ],
+        "scenario": null,
+        "includes_ids": []
+      },
+      {
+        "id": 452339,
+        "name": "newMain",
+        "valid": true,
+        "folder": 0,
+        "version": 4,
+        "strict": false,
+        "total_lines": 152,
+        "total_chars": 3137,
+        "entrypoint": true,
+        "entrypoints": [],
+        "scenario": null,
+        "includes_ids": [
+          451842,
+          451918,
+          451919,
+          452286,
+          452289,
+          452340,
+          452341,
+          452343
+        ]
+      },
+      {
+        "id": 452045,
+        "name": "nullos",
+        "valid": true,
+        "folder": 0,
+        "version": 4,
+        "strict": false,
+        "total_lines": 17,
+        "total_chars": 456,
+        "entrypoint": true,
+        "entrypoints": [],
+        "scenario": null,
+        "includes_ids": []
+      },
+      {
+        "id": 451918,
+        "name": "player",
+        "valid": true,
+        "folder": 30679,
+        "version": 4,
+        "strict": false,
+        "total_lines": 75,
+        "total_chars": 1551,
+        "entrypoint": false,
+        "entrypoints": [
+          452339,
+          451916
+        ],
+        "scenario": 35237,
+        "includes_ids": []
+      },
+      {
+        "id": 452340,
+        "name": "survival",
+        "valid": true,
+        "folder": 30819,
+        "version": 4,
+        "strict": false,
+        "total_lines": 21,
+        "total_chars": 438,
+        "entrypoint": true,
+        "entrypoints": [
+          452339
+        ],
+        "scenario": null,
+        "includes_ids": []
+      },
+      {
+        "id": 452903,
+        "name": "test",
+        "valid": true,
+        "folder": 0,
+        "version": 4,
+        "strict": false,
+        "total_lines": 0,
+        "total_chars": 0,
+        "entrypoint": false,
+        "entrypoints": [],
+        "scenario": null,
+        "includes_ids": []
+      },
+      {
+        "id": 452286,
+        "name": "useWeapon",
+        "valid": true,
+        "folder": 30674,
+        "version": 4,
+        "strict": false,
+        "total_lines": 23,
+        "total_chars": 558,
+        "entrypoint": true,
+        "entrypoints": [
+          452339,
+          451916
+        ],
+        "scenario": null,
+        "includes_ids": []
+      }
+    ],
+    "bin": [],
+    "leek_ais": {
+      "131080": 451916
+    },
+    "folders": [
+      {
+        "id": 30819,
+        "name": "behaviors",
+        "folder": 0
+      },
+      {
+        "id": 30679,
+        "name": "entities",
+        "folder": 0
+      },
+      {
+        "id": 30674,
+        "name": "functions",
+        "folder": 0
+      }
+    ],
+    "potions": [
+      {
+        "id": 2389329,
+        "template": 50,
+        "quantity": 1,
+        "time": 1765833696
+      },
+      {
+        "id": 2389328,
+        "template": 58,
+        "quantity": 3,
+        "time": 1766434909
+      }
+    ],
+    "hats": [],
+    "resources": [
+      {
+        "id": 2397672,
+        "template": 235,
+        "quantity": 1,
+        "time": 1766548712
+      },
+      {
+        "id": 2390862,
+        "template": 204,
+        "quantity": 11,
+        "time": 1766548735
+      },
+      {
+        "id": 2390865,
+        "template": 211,
+        "quantity": 3,
+        "time": 1766548585
+      },
+      {
+        "id": 2390866,
+        "template": 208,
+        "quantity": 29,
+        "time": 1766592902
+      },
+      {
+        "id": 2391768,
+        "template": 194,
+        "quantity": 18,
+        "time": 1766548711
+      },
+      {
+        "id": 2391775,
+        "template": 195,
+        "quantity": 12,
+        "time": 1766548918
+      },
+      {
+        "id": 2391778,
+        "template": 231,
+        "quantity": 3,
+        "time": 1766364919
+      },
+      {
+        "id": 2391781,
+        "template": 189,
+        "quantity": 3,
+        "time": 1766272236
+      },
+      {
+        "id": 2391782,
+        "template": 236,
+        "quantity": 6,
+        "time": 1766548897
+      },
+      {
+        "id": 2391791,
+        "template": 237,
+        "quantity": 2,
+        "time": 1766267982
+      },
+      {
+        "id": 2391779,
+        "template": 233,
+        "quantity": 4,
+        "time": 1766364798
+      },
+      {
+        "id": 2394675,
+        "template": 209,
+        "quantity": 9,
+        "time": 1766600102
+      },
+      {
+        "id": 2394678,
+        "template": 203,
+        "quantity": 2,
+        "time": 1766364911
+      },
+      {
+        "id": 2394761,
+        "template": 192,
+        "quantity": 1,
+        "time": 1766186621
+      },
+      {
+        "id": 2394763,
+        "template": 210,
+        "quantity": 3,
+        "time": 1766427301
+      },
+      {
+        "id": 2395378,
+        "template": 205,
+        "quantity": 2,
+        "time": 1766548683
+      },
+      {
+        "id": 2395471,
+        "template": 215,
+        "quantity": 2,
+        "time": 1766451652
+      },
+      {
+        "id": 2395791,
+        "template": 196,
+        "quantity": 6,
+        "time": 1766592902
+      },
+      {
+        "id": 2395750,
+        "template": 202,
+        "quantity": 1,
+        "time": 1766314917
+      },
+      {
+        "id": 2395846,
+        "template": 238,
+        "quantity": 2,
+        "time": 1766452094
+      },
+      {
+        "id": 2396000,
+        "template": 200,
+        "quantity": 1,
+        "time": 1766340902
+      },
+      {
+        "id": 2396214,
+        "template": 234,
+        "quantity": 2,
+        "time": 1766548683
+      },
+      {
+        "id": 2390860,
+        "template": 191,
+        "quantity": 11,
+        "time": 1766548683
+      },
+      {
+        "id": 2396820,
+        "template": 213,
+        "quantity": 1,
+        "time": 1766451980
+      },
+      {
+        "id": 2396215,
+        "template": 232,
+        "quantity": 1,
+        "time": 1766548735
+      }
+    ],
+    "components": [],
+    "schemes": [
+      {
+        "id": 2391776,
+        "template": 426,
+        "quantity": 1,
+        "time": 1765993428
+      },
+      {
+        "id": 2391790,
+        "template": 391,
+        "quantity": 1,
+        "time": 1765993582
+      },
+      {
+        "id": 2389334,
+        "template": 427,
+        "quantity": 1,
+        "time": 1765835717
+      },
+      {
+        "id": 2395359,
+        "template": 360,
+        "quantity": 1,
+        "time": 1766267709
+      },
+      {
+        "id": 2391787,
+        "template": 356,
+        "quantity": 1,
+        "time": 1765993569
+      },
+      {
+        "id": 2395361,
+        "template": 332,
+        "quantity": 1,
+        "time": 1766267710
+      },
+      {
+        "id": 2394756,
+        "template": 348,
+        "quantity": 1,
+        "time": 1766186586
+      },
+      {
+        "id": 2395450,
+        "template": 337,
+        "quantity": 1,
+        "time": 1766271854
+      },
+      {
+        "id": 2397673,
+        "template": 329,
+        "quantity": 1,
+        "time": 1766548712
+      }
+    ],
+    "tournament": {
+      "registered": false,
+      "current": null
+    },
+    "candidacy": null,
+    "pomps": [],
+    "rewards": []
+  },
+  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NjY2MjE0MDYsImlkIjoxMjQ2MTcsImtlZXAiOmZhbHNlLCJoYXNoIjoiJDJ5JDEwJHhYbm5ROFNya1BoMGkiLCJpcCI6IjgyLjY3LjIuMTA2IiwiaXNzIjoiaHR0cHM6XC9cL2xlZWt3YXJzLmNvbSIsImF1ZCI6Imh0dHBzOlwvXC9sZWVrd2Fycy5jb20ifQ.xuH-rJ9ZIZywXY0xv7ApAbmq-YPhYeDYnqXvhz7QlAI",
+  "farmers": 26,
+  "message": null,
+  "notifications": [
+    {
+      "id": 83963351,
+      "type": 26,
+      "parameters": [
+        "50763858",
+        "-1"
+      ],
+      "date": 1766607302,
+      "read": false
+    },
+    {
+      "id": 83961180,
+      "type": 26,
+      "parameters": [
+        "50763187",
+        "-1"
+      ],
+      "date": 1766600102,
+      "read": false
+    },
+    {
+      "id": 83958322,
+      "type": 26,
+      "parameters": [
+        "50761006",
+        "-1"
+      ],
+      "date": 1766592902,
+      "read": false
+    },
+    {
+      "id": 83955093,
+      "type": 26,
+      "parameters": [
+        "50758546",
+        "-1"
+      ],
+      "date": 1766585701,
+      "read": false
+    },
+    {
+      "id": 83951093,
+      "type": 26,
+      "parameters": [
+        "50755783",
+        "-1"
+      ],
+      "date": 1766578502,
+      "read": false
+    },
+    {
+      "id": 83949769,
+      "type": 13,
+      "parameters": [
+        "108092",
+        "1",
+        "131080",
+        "LeakWeird",
+        "50755000",
+        "0"
+      ],
+      "date": 1766575822,
+      "read": false
+    },
+    {
+      "id": 83948345,
+      "type": 13,
+      "parameters": [
+        "108092",
+        "0",
+        "131080",
+        "LeakWeird",
+        "50754116",
+        "1"
+      ],
+      "date": 1766574110,
+      "read": false
+    },
+    {
+      "id": 83946410,
+      "type": 26,
+      "parameters": [
+        "50752890",
+        "-1"
+      ],
+      "date": 1766571302,
+      "read": true
+    },
+    {
+      "id": 83946404,
+      "type": 1,
+      "parameters": [
+        "131080",
+        "41",
+        "5"
+      ],
+      "date": 1766571302,
+      "read": true
+    },
+    {
+      "id": 83942926,
+      "type": 26,
+      "parameters": [
+        "50750614",
+        "-1"
+      ],
+      "date": 1766564103,
+      "read": true
+    },
+    {
+      "id": 83940141,
+      "type": 11,
+      "parameters": [
+        "75",
+        "50749164"
+      ],
+      "date": 1766548854,
+      "read": true
+    },
+    {
+      "id": 83940100,
+      "type": 1,
+      "parameters": [
+        "131080",
+        "40",
+        "5"
+      ],
+      "date": 1766548769,
+      "read": true
+    },
+    {
+      "id": 83939645,
+      "type": 1,
+      "parameters": [
+        "131080",
+        "39",
+        "10"
+      ],
+      "date": 1766548637,
+      "read": true
+    },
+    {
+      "id": 83939500,
+      "type": 11,
+      "parameters": [
+        "199"
+      ],
+      "date": 1766548504,
+      "read": true
+    },
+    {
+      "id": 83939492,
+      "type": 11,
+      "parameters": [
+        "257",
+        "50748860"
+      ],
+      "date": 1766548479,
+      "read": true
+    },
+    {
+      "id": 83939490,
+      "type": 1,
+      "parameters": [
+        "131080",
+        "38",
+        "5"
+      ],
+      "date": 1766548479,
+      "read": true
+    },
+    {
+      "id": 83939470,
+      "type": 11,
+      "parameters": [
+        "276",
+        "50748763"
+      ],
+      "date": 1766548433,
+      "read": true
+    },
+    {
+      "id": 83936959,
+      "type": 26,
+      "parameters": [
+        "50747031",
+        "-1"
+      ],
+      "date": 1766528101,
+      "read": true
+    },
+    {
+      "id": 83935569,
+      "type": 3,
+      "parameters": [
+        "WhiteSlash",
+        "9205",
+        "69096",
+        "7",
+        "1",
+        "Aide utilisation des API",
+        "512"
+      ],
+      "date": 1766522666,
+      "read": true
+    },
+    {
+      "id": 83934135,
+      "type": 26,
+      "parameters": [
+        "50745708",
+        "-1"
+      ],
+      "date": 1766520902,
+      "read": true
+    }
+  ],
+  "conversations": [
+    {
+      "id": 36704,
+      "last_message": "Ça y est ! J'ai finis la bagarre !",
+      "last_farmer_id": 21337,
+      "last_farmer_name": "Andorphine",
+      "last_date": 1766572916,
+      "farmers": [
+        {
+          "id": 21337,
+          "name": "Andorphine",
+          "avatar_changed": 1697028015,
+          "color": ""
+        },
+        {
+          "id": 124617,
+          "name": "LeMecWeird",
+          "avatar_changed": 1766087543,
+          "color": ""
+        }
+      ],
+      "read": true
+    },
+    {
+      "id": 36734,
+      "last_message": "bonnes fêtes aussi !",
+      "last_farmer_id": 120993,
+      "last_farmer_name": "chrisss",
+      "last_date": 1766512028,
+      "farmers": [
+        {
+          "id": 120993,
+          "name": "chrisss",
+          "avatar_changed": 1761986367,
+          "color": ""
+        },
+        {
+          "id": 124617,
+          "name": "LeMecWeird",
+          "avatar_changed": 1766087543,
+          "color": ""
+        }
+      ],
+      "read": true
+    },
+    {
+      "id": 36728,
+      "last_message": "Ok ok j'été pas co à ce moment my bad merci",
+      "last_farmer_id": 124617,
+      "last_farmer_name": "LeMecWeird",
+      "last_date": 1766511452,
+      "farmers": [
+        {
+          "id": 56160,
+          "name": "Kavaliov",
+          "avatar_changed": 1514637458,
+          "color": "contributor"
+        },
+        {
+          "id": 124617,
+          "name": "LeMecWeird",
+          "avatar_changed": 1766087543,
+          "color": ""
+        }
+      ],
+      "read": true
+    },
+    {
+      "id": 36729,
+      "last_message": "Oui je pourrais regarder 😇",
+      "last_farmer_id": 97060,
+      "last_farmer_name": "Portevent",
+      "last_date": 1766385041,
+      "farmers": [
+        {
+          "id": 124617,
+          "name": "LeMecWeird",
+          "avatar_changed": 1766087543,
+          "color": ""
+        },
+        {
+          "id": 97060,
+          "name": "Portevent",
+          "avatar_changed": 1704304975,
+          "color": ""
+        }
+      ],
+      "read": true
+    },
+    {
+      "id": 36733,
+      "last_message": "Je fais des tests donc c'est temporaire, mais restons sur mon main ça sera plus simple",
+      "last_farmer_id": 97617,
+      "last_farmer_name": "PorteventEsc",
+      "last_date": 1766349355,
+      "farmers": [
+        {
+          "id": 124617,
+          "name": "LeMecWeird",
+          "avatar_changed": 1766087543,
+          "color": ""
+        },
+        {
+          "id": 97617,
+          "name": "PorteventEsc",
+          "avatar_changed": 1704372287,
+          "color": ""
+        }
+      ],
+      "read": true
+    },
+    {
+      "id": 36721,
+      "last_message": "Salut",
+      "last_farmer_id": 124617,
+      "last_farmer_name": "LeMecWeird",
+      "last_date": 1766092613,
+      "farmers": [
+        {
+          "id": 124617,
+          "name": "LeMecWeird",
+          "avatar_changed": 1766087543,
+          "color": ""
+        },
+        {
+          "id": 124730,
+          "name": "PouletDeKFC",
+          "avatar_changed": 1766093059,
+          "color": ""
+        }
+      ],
+      "read": true
+    }
+  ],
+  "chats": [
+    {
+      "id": 34100,
+      "read": null,
+      "notifications": true
+    },
+    {
+      "id": 1,
+      "read": false,
+      "notifications": true
+    },
+    {
+      "id": 2,
+      "read": false,
+      "notifications": true
+    },
+    {
+      "id": 32507,
+      "read": true,
+      "notifications": true
+    },
+    {
+      "id": 32506,
+      "read": true,
+      "notifications": true
+    }
+  ]
+}
