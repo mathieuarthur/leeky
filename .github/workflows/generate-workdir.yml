@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout YOUR repo (generator code)
+      # 1️⃣ Checkout YOUR repo (contains package.json)
       - name: Checkout generator repo
         uses: actions/checkout@v4
         with:
@@ -27,12 +27,12 @@ jobs:
         with:
           bun-version: latest
 
-      # 3️⃣ Install deps (YOUR repo)
+      # 3️⃣ Install deps (IMPORTANT FIX)
       - name: Install deps
         working-directory: generator
         run: bun install
 
-      # 4️⃣ Run generator (output stays in YOUR repo)
+      # 4️⃣ Run generator
       - name: Run workdir generation
         working-directory: generator
         env:
@@ -47,17 +47,16 @@ jobs:
           token: ${{ secrets.CALLER_GITHUB_TOKEN }}
           path: caller
 
-      # 6️⃣ Copy generated folder into caller repo
-      - name: Copy workdir to caller repo
+      # 6️⃣ Copy output
+      - name: Copy workdir
         run: |
           rm -rf caller/workdir
           cp -R generator/workdir caller/workdir
 
-      # 7️⃣ Commit & push to caller repo
+      # 7️⃣ Commit & push
       - name: Commit and push
         working-directory: caller
         run: |
-          set -e
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
@@ -68,3 +67,4 @@ jobs:
           else
             echo "No changes to commit."
           fi
+
