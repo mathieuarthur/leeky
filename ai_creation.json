@@ -1,9 +1,0 @@
-{
-  "ai": {
-    "id": 452908,
-    "name": "didier",
-    "level": 1,
-    "code": "/**\n * Welcome to Leek Wars!\n * To know how the game works: leekwars.com/en/Game_Rules\n * To learn the LeekScript language: leekwars.com/encyclopedia/en/Tutorial\n * To learn more about the available functions: leekwars.com/help/documentation\n**/\n\n// This is a very basic example code:\n\n// We take the pistol\nsetWeapon(WEAPON_PISTOL) // Warning: costs 1 TP\n\n// We get the nearest enemy\nvar enemy = getNearestEnemy()\n\n// We move towards him\nmoveToward(enemy)\n\n// We try to shoot him!\nuseWeapon(enemy)",
-    "folder": 0
-  }
-}

@@ -7,43 +7,63 @@ on:
         required: true
       LW_PASSWORD:
         required: true
-  workflow_dispatch:
-
-permissions:
-  contents: write
+      CALLER_GITHUB_TOKEN:
+        required: true
 
 jobs:
   run:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
 
+    steps:
+      # 1️⃣ Checkout YOUR repo (generator code)
+      - name: Checkout generator repo
+        uses: actions/checkout@v4
+        with:
+          path: generator
+
+      # 2️⃣ Setup Bun
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
 
+      # 3️⃣ Install deps (YOUR repo)
       - name: Install deps
+        working-directory: generator
         run: bun install
 
+      # 4️⃣ Run generator (output stays in YOUR repo)
       - name: Run workdir generation
+        working-directory: generator
         env:
           LW_LOGIN: ${{ secrets.LW_LOGIN }}
           LW_PASSWORD: ${{ secrets.LW_PASSWORD }}
         run: bun run start workdir
 
-      - name: Commit and push changes
-        env:
-          GIT_AUTHOR_NAME: ${{ github.actor }}
-          GIT_AUTHOR_EMAIL: ${{ github.actor }}@users.noreply.github.com
+      # 5️⃣ Checkout CALLER repo (empty is fine)
+      - name: Checkout caller repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.CALLER_GITHUB_TOKEN }}
+          path: caller
+
+      # 6️⃣ Copy generated folder into caller repo
+      - name: Copy workdir to caller repo
+        run: |
+          rm -rf caller/workdir
+          cp -R generator/workdir caller/workdir
+
+      # 7️⃣ Commit & push to caller repo
+      - name: Commit and push
+        working-directory: caller
         run: |
           set -e
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
           if [ -n "$(git status --porcelain)" ]; then
-            git config user.name "$GIT_AUTHOR_NAME"
-            git config user.email "$GIT_AUTHOR_EMAIL"
             git add workdir
-            git commit -m "chore: update workdir from workflow run"
+            git commit -m "chore: generate workdir"
             git push
           else
             echo "No changes to commit."
