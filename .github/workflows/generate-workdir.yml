@@ -7,64 +7,58 @@ on:
         required: true
       LW_PASSWORD:
         required: true
-      CALLER_GITHUB_TOKEN:
-        required: true
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   run:
     runs-on: ubuntu-latest
-
     steps:
-      # 1️⃣ Checkout YOUR repo (contains package.json)
-      - name: Checkout generator repo
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Checkout action repo
         uses: actions/checkout@v4
         with:
-          path: generator
+          repository: your-username/your-action-repo
+          path: action
 
-      # 2️⃣ Setup Bun
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
 
-      # 3️⃣ Install deps (IMPORTANT FIX)
       - name: Install deps
-        working-directory: generator
-        run: bun install
+        run: |
+          cd action
+          bun install
 
-      # 4️⃣ Run generator
       - name: Run workdir generation
-        working-directory: generator
         env:
           LW_LOGIN: ${{ secrets.LW_LOGIN }}
           LW_PASSWORD: ${{ secrets.LW_PASSWORD }}
-        run: bun run start workdir
-
-      # 5️⃣ Checkout CALLER repo (empty is fine)
-      - name: Checkout caller repo
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.CALLER_GITHUB_TOKEN }}
-          path: caller
-
-      # 6️⃣ Copy output
-      - name: Copy workdir
         run: |
-          rm -rf caller/workdir
-          cp -R generator/workdir caller/workdir
+          cd action
+          bun run start workdir
 
-      # 7️⃣ Commit & push
-      - name: Commit and push
-        working-directory: caller
+      - name: Copy workdir to caller repo
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
+          cp -r action/workdir ./workdir
 
+      - name: Commit and push changes
+        env:
+          GIT_AUTHOR_NAME: ${{ github.actor }}
+          GIT_AUTHOR_EMAIL: ${{ github.actor }}@users.noreply.github.com
+        run: |
+          set -e
           if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "$GIT_AUTHOR_NAME"
+            git config user.email "$GIT_AUTHOR_EMAIL"
             git add workdir
-            git commit -m "chore: generate workdir"
+            git commit -m "chore: update workdir from workflow run"
             git push
           else
             echo "No changes to commit."
           fi
-
