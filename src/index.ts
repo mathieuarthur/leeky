@@ -1,71 +1,99 @@
-import { writeFile } from "fs/promises";
-import { fileURLToPath } from "url";
-import { dirname, join } from "path";
 import { generateWorkdir } from "./functions/workDir";
 import { deleteAi } from "./functions/deleteAi";
 import { login } from "./functions/login";
 import { createAi } from "./functions/createAi";
+import { getCode } from "./functions/getCode";
+import { saveCode } from "./functions/saveCode";
 import type { LoginResponse } from "../types/login";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
+// Login and get user data
 const loginResp = await login();
 const data: LoginResponse = await loginResp.json();
 
-// Write the fetched data to a JSON file at the project root
-const outPath = join(__dirname, "..", "data.json");
-await writeFile(outPath, JSON.stringify(data, null, 2));
-
-
-// Use the received token to create a new AI file
-if (!data?.token) {
-    throw new Error("Login did not return a token. Cannot create AI file.");
-}
-
-// Wrapper function to create "didier" AI
-async function createDidier() {
-    await createAi(data.token);
-}
-
-// Wrapper function to delete "didier" AI
-async function deleteDidier() {
-    await deleteAi(data);
-}
-
-async function workDir()
+if (!data?.token) 
 {
-    await generateWorkdir(data);
+    throw new Error("Login did not return a token.");
 }
 
 // Prompt user for operation
-function promptUser(): Promise<string> {
-    return new Promise((resolve) => {
+function promptUser(): Promise<string> 
+{
+    return new Promise((resolve) => 
+    {
         console.log("\nChoose an operation:");
-        console.log("1. create - Create AI named 'didier'");
-        console.log("2. delete - Delete AI named 'didier'");
-        console.log("3. workdir - Generate work directory structure\n");
-        console.log("Or use: bun run start create|delete\n");
+        console.log("  1. create  - Create folders and AIs from workdir");
+        console.log("  2. delete  - Delete all AIs and folders ⚠️  WARNING: IRREVERSIBLE!");
+        console.log("  3. workdir - Download code to work directory");
+        console.log("  4. save    - Upload code from workdir to LeekWars");
+        console.log("\nUsage: bun run start <operation>\n");
         
-        process.stdout.write("Enter choice (create/delete/workdir): ");
+        process.stdout.write("Enter choice: ");
         process.stdin.setEncoding("utf8");
-        process.stdin.once("data", (chunk) => {
+        process.stdin.once("data", (chunk) => 
+        {
             resolve(chunk.toString().trim().toLowerCase());
         });
     });
 }
 
-// Determine operation from argv or prompt
-const operation = process.argv[2] || await promptUser();
+// Confirm deletion
+function confirmDeletion(): Promise<boolean> 
+{
+    return new Promise((resolve) => 
+    {
+        console.log("\n⚠️  WARNING: This will delete ALL your AIs and folders from LeekWars!");
+        console.log("This action is IRREVERSIBLE and cannot be undone.\n");
+        process.stdout.write("Type 'yes' to confirm deletion: ");
+        process.stdin.setEncoding("utf8");
+        process.stdin.once("data", (chunk) => 
+        {
+            const response = chunk.toString().trim().toLowerCase();
+            resolve(response === "yes");
+        });
+    });
+}
 
-if (operation === "create" || operation === "1") {
-    await createDidier();
-} else if (operation === "delete" || operation === "2") {
-    await deleteDidier();
-} else if (operation === "workdir" || operation === "3") {
-    await workDir();
-} else {
-    console.log("Invalid operation. Use 'create', 'delete', or 'workdir'.");
+// Map numeric shortcuts to operation names
+const operationAliases: Record<string, string> = {
+    "1": "create",
+    "2": "delete",
+    "3": "workdir",
+    "4": "save",
+};
+
+// Map operations to their handlers
+const operations: Record<string, () => Promise<void>> = {
+    "create": async () => createAi(data.token),
+    "delete": async () => 
+    {
+        const confirmed = await confirmDeletion();
+        if (!confirmed) 
+        {
+            console.log("\nDeletion cancelled.");
+            return;
+        }
+        await deleteAi(data);
+    },
+    "workdir": async () => 
+    {
+        const codeMap = await getCode(data);
+        await generateWorkdir(data, "./workdir", codeMap);
+    },
+    "save": async () => saveCode(data),
+};
+
+// Execute operation
+const input = process.argv[2] || await promptUser();
+const operation = operationAliases[input] || input;
+const handler = operations[operation];
+
+if (handler) 
+{
+    await handler();
+}
+else 
+{
+    console.log("Invalid operation. Use 'create', 'delete', 'workdir', or 'save'.");
     process.exit(1);
 }
 

@@ -3,13 +3,16 @@ export async function emptyBin(token: string)
     const response = await fetch("https://leekwars.com/api/ai/bin", {
         method: "DELETE",
         headers: {
-        Cookie: `token=${token}`
+            Cookie: `token=${token}`
         }
     });
 
-    if (response.ok) {
+    if (response.ok) 
+    {
         console.log("✓ bin emptied successfully");
-    } else {
+    } 
+    else 
+    {
         console.error(`✗ Failed to empty bin: ${response.status} ${response.statusText}`);
     }
 }
