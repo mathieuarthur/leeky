@@ -9,7 +9,7 @@
 [![Made with Bun](https://img.shields.io/badge/Made%20with-Bun-000000?style=for-the-badge&logo=bun&logoColor=white)](https://bun.sh)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![GitHub Actions](https://img.shields.io/github/actions/workflow/status/mathieuarthur/leeky/generate-workdir.yml?style=for-the-badge&logo=github-actions&logoColor=white&label=CI)](https://github.com/mathieuarthur/leeky/actions)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg?style=for-the-badge)](https://www.gnu.org/licenses/gpl-3.0)
 [![LeekWars](https://img.shields.io/badge/LeekWars-Ready-5CB85C?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6bTAgMThjLTQuNDEgMC04LTMuNTktOC04czMuNTktOCA4LTggOCAzLjU5IDggOC0zLjU5IDgtOCA4eiIvPjwvc3ZnPg==)](https://leekwars.com)
 
 [![GitHub Stars](https://img.shields.io/github/stars/mathieuarthur/leeky?style=for-the-badge&logo=github&color=gold)](https://github.com/mathieuarthur/leeky/stargazers)
