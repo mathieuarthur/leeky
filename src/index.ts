@@ -25,6 +25,7 @@ function promptUser(): Promise<string>
         console.log("  2. delete  - Delete all AIs and folders ⚠️  WARNING: IRREVERSIBLE!");
         console.log("  3. workdir - Download code to work directory");
         console.log("  4. save    - Upload code from workdir to LeekWars");
+        console.log("  q. quit    - Exit the script");
         console.log("\nUsage: bun run start <operation>\n");
         
         process.stdout.write("Enter choice: ");
@@ -53,8 +54,10 @@ function confirmDeletion(): Promise<boolean>
     });
 }
 
+type OperationName = "create" | "delete" | "workdir" | "save";
+
 // Map numeric shortcuts to operation names
-const operationAliases: Record<string, string> = {
+const operationAliases: Record<string, OperationName> = {
     "1": "create",
     "2": "delete",
     "3": "workdir",
@@ -62,7 +65,7 @@ const operationAliases: Record<string, string> = {
 };
 
 // Map operations to their handlers
-const operations: Record<string, () => Promise<void>> = {
+const operations: Record<OperationName, () => Promise<void>> = {
     "create": async () => createAi(data.token),
     "delete": async () => 
     {
@@ -84,7 +87,15 @@ const operations: Record<string, () => Promise<void>> = {
 
 // Execute operation
 const input = process.argv[2] || await promptUser();
-const operation = operationAliases[input] || input;
+
+// Handle quit command
+if (input === "q" || input === "quit") 
+{
+    console.log("\nExiting...");
+    process.exit(0);
+}
+
+const operation = (operationAliases[input] || input) as OperationName;
 const handler = operations[operation];
 
 if (handler) 
@@ -93,7 +104,7 @@ if (handler)
 }
 else 
 {
-    console.log("Invalid operation. Use 'create', 'delete', 'workdir', or 'save'.");
+    console.log("Invalid operation. Use 'create', 'delete', 'workdir', 'save', or 'q' to quit.");
     process.exit(1);
 }
 

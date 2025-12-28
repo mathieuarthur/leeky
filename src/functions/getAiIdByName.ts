@@ -1,17 +1,6 @@
 import type { LoginResponse } from "../../types/login";
 
-export function getAiIdByName(data: LoginResponse, name: string): number | null | undefined 
+export function getAiIdByName(data: LoginResponse, name: string): number | null 
 {
-    if (!data?.farmer?.ais || !Array.isArray(data.farmer.ais)) 
-    {
-        return null;
-    }
-    for (const ai of data.farmer.ais) 
-    {
-        if (ai?.name === name) 
-        {
-            return ai?.id;
-        }
-    }
-    return null;
+    return data?.farmer?.ais?.find(ai => ai.name === name)?.id ?? null;
 }

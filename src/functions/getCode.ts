@@ -1,13 +1,5 @@
 import type { LoginResponse } from "../../types/login";
-
-interface AIGetResponse {
-  success: boolean;
-  ai?: {
-    id: number;
-    code: string;
-    [key: string]: any;
-  };
-}
+import type { AIResponse } from "../../types/api";
 
 export async function getCode(data: LoginResponse): Promise<Map<number, string>> 
 {
@@ -21,26 +13,24 @@ export async function getCode(data: LoginResponse): Promise<Map<number, string>>
 
     console.log(`Fetching code for ${data.farmer.ais.length} AI(s)...`);
 
+    const headers = {
+        "Content-Type": "application/json",
+        Cookie: `token=${data.token}`,
+    };
+
     for (const ai of data.farmer.ais) 
     {
         try 
         {
-            const response = await fetch(
-                `https://leekwars.com/api/ai/get/${ai.id}`,
-                {
-                    method: "GET",
-                    headers: {
-                        "Content-Type": "application/json",
-                        Cookie: `token=${data.token}`,
-                    }
-                }
-            );
+            const response = await fetch(`https://leekwars.com/api/ai/get/${ai.id}`, {
+                method: "GET",
+                headers,
+            });
 
             if (response.ok) 
             {
-                const result: any = await response.json();
-        
-                // Check if code exists in the ai object
+                const result: AIResponse = await response.json();
+
                 if (result.ai?.code) 
                 {
                     codeMap.set(ai.id, result.ai.code);
@@ -49,18 +39,11 @@ export async function getCode(data: LoginResponse): Promise<Map<number, string>>
                 else 
                 {
                     console.error(`✗ No code found for AI '${ai.name}' (ID: ${ai.id})`);
-                    console.error(`Response:`, result);
                 }
             }
             else 
             {
-                const errorBody = await response.text();
-                console.error(
-                    `✗ Failed to retrieve AI '${ai.name}': ${response.status} ${response.statusText}`
-                );
-                console.error(`Response body:`, errorBody);
-                console.error(`Request URL:`, `https://leekwars.com/api/ai/get?ai_id=${ai.id}`);
-                console.error(`Token (first 20 chars):`, data.token?.substring(0, 20));
+                console.error(`✗ Failed to retrieve AI '${ai.name}': ${response.status} ${response.statusText}`);
             }
         }
         catch (error) 
@@ -68,7 +51,8 @@ export async function getCode(data: LoginResponse): Promise<Map<number, string>>
             console.error(`✗ Error fetching AI '${ai.name}':`, error);
         }
 
-        await new Promise(resolve => setTimeout(resolve, 500)); // Slight delay to avoid rate limiting
+        // Rate limiting
+        await new Promise(resolve => setTimeout(resolve, 500));
     }
 
     return codeMap;

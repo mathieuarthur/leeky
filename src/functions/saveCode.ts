@@ -2,18 +2,20 @@ import { readdir, readFile } from "fs/promises";
 import { join } from "path";
 import type { LoginResponse } from "../../types/login";
 import type { AI } from "../../types/ai";
+import type { LeekFile } from "../../types/api";
 
-export async function saveCode(data: LoginResponse, baseDir = "./workdir") 
+export async function saveCode(data: LoginResponse, baseDir = "./workdir"): Promise<void> 
 {
-    // Step 1: Get farmer AIs with fresh IDs
+    // Fetch current AI list
     console.log("Fetching current AI list...");
-  
+    const headers = {
+        "Content-Type": "application/json",
+        Cookie: `token=${data.token}`,
+    };
+
     const response = await fetch("https://leekwars.com/api/ai/get-farmer-ais", {
         method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            Cookie: `token=${data.token}`,
-        },
+        headers,
     });
 
     if (!response.ok) 
@@ -22,9 +24,9 @@ export async function saveCode(data: LoginResponse, baseDir = "./workdir")
         return;
     }
 
-    const result: any = await response.json();
+    const result = await response.json();
     const ais: AI[] = result.ais || result.farmer_ais || [];
-  
+
     if (ais.length === 0) 
     {
         console.log("✗ No AIs found on LeekWars");
@@ -33,14 +35,10 @@ export async function saveCode(data: LoginResponse, baseDir = "./workdir")
 
     console.log(`Found ${ais.length} AI(s) on LeekWars`);
 
-    // Step 2: Create a map of AI names to IDs
-    const aiMap = new Map<string, number>();
-    for (const ai of ais) 
-    {
-        aiMap.set(ai.name, ai.id);
-    }
+    // Build AI name to ID map
+    const aiMap = new Map(ais.map(ai => [ai.name, ai.id]));
 
-    // Step 3: Scan workdir and upload code
+    // Scan and upload code
     console.log("\nUploading code...");
     const files = await scanLeekFiles(baseDir);
 
@@ -55,27 +53,22 @@ export async function saveCode(data: LoginResponse, baseDir = "./workdir")
             continue;
         }
 
+        const content = await readFile(file.path, "utf-8");
+
+        if (!content.trim()) 
+        {
+            console.log(`⚠️  AI '${aiName}' has no code, skipping...`);
+            continue;
+        }
+
         try 
         {
-            // Read the file content
-            const content = await readFile(file.path, "utf-8");
-
-            if (!content || content.trim().length === 0) 
-            {
-                console.log(`⚠️  AI '${aiName}' has no code, skipping...`);
-                continue;
-            }
-
-            // Save code to LeekWars
             const saveResponse = await fetch("https://leekwars.com/api/ai/save", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Cookie: `token=${data.token}`,
-                },
+                headers,
                 body: JSON.stringify({
                     ai_id: aiId,
-                    code: content,
+                    code: content 
                 }),
             });
 
@@ -93,16 +86,16 @@ export async function saveCode(data: LoginResponse, baseDir = "./workdir")
             console.error(`✗ Error uploading code for AI '${aiName}':`, error);
         }
 
-        // Wait to avoid rate limiting
+        // Rate limiting
         await new Promise(resolve => setTimeout(resolve, 500));
     }
 
     console.log("\n✓ Code upload complete");
 }
 
-async function scanLeekFiles(dir: string): Promise<Array<{ path: string, name: string }>> 
+async function scanLeekFiles(dir: string): Promise<LeekFile[]> 
 {
-    const files: Array<{ path: string, name: string }> = [];
+    const files: LeekFile[] = [];
     const entries = await readdir(dir, {
         withFileTypes: true 
     });
@@ -113,10 +106,9 @@ async function scanLeekFiles(dir: string): Promise<Array<{ path: string, name: s
 
         if (entry.isDirectory()) 
         {
-            const subFiles = await scanLeekFiles(fullPath);
-            files.push(...subFiles);
+            files.push(...await scanLeekFiles(fullPath));
         }
-        else if (entry.isFile() && entry.name.endsWith(".leek")) 
+        else if (entry.name.endsWith(".leek")) 
         {
             files.push({
                 path: fullPath,

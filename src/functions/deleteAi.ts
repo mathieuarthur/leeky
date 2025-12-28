@@ -1,44 +1,54 @@
 import { emptyBin } from "./emptyBin";
 import type { LoginResponse } from "../../types/login";
 
-export async function deleteAi(data: LoginResponse) 
+async function deleteEntity(url: string, body: object, token: string, entityType: string, entityName: string): Promise<void> 
+{
+    try 
+    {
+        const response = await fetch(url, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                Cookie: `token=${token}`,
+            },
+            body: JSON.stringify(body),
+        });
+
+        if (response.ok) 
+        {
+            console.log(`✓ ${entityType} '${entityName}' deleted successfully`);
+        }
+        else 
+        {
+            console.error(`✗ Failed to delete ${entityType.toLowerCase()} '${entityName}': ${response.status} ${response.statusText}`);
+        }
+    }
+    catch (error) 
+    {
+        console.error(`✗ Error deleting ${entityType.toLowerCase()} '${entityName}':`, error);
+    }
+
+    await new Promise(resolve => setTimeout(resolve, 500));
+}
+
+export async function deleteAi(data: LoginResponse): Promise<void> 
 {
     // Delete folders first (this will delete AIs inside them)
-    if (data?.farmer?.folders && data.farmer.folders.length > 0) 
+    if (data?.farmer?.folders?.length) 
     {
         console.log(`Deleting ${data.farmer.folders.length} folder(s)...`);
 
         for (const folder of data.farmer.folders) 
         {
-            try 
-            {
-                const response = await fetch("https://leekwars.com/api/ai-folder/delete", {
-                    method: "DELETE",
-                    headers: {
-                        "Content-Type": "application/json",
-                        Cookie: `token=${data.token}`,
-                    },
-                    body: JSON.stringify({
-                        folder_id: folder.id 
-                    }),
-                });
-
-                if (response.ok) 
+            await deleteEntity(
+                "https://leekwars.com/api/ai-folder/delete",
                 {
-                    console.log(`✓ Folder '${folder.name}' (ID: ${folder.id}) deleted successfully`);
-                }
-                else 
-                {
-                    console.error(`✗ Failed to delete folder '${folder.name}': ${response.status} ${response.statusText}`);
-                }
-            }
-            catch (error) 
-            {
-                console.error(`✗ Error deleting folder '${folder.name}':`, error);
-            }
-
-            // Wait to avoid rate limiting
-            await new Promise(resolve => setTimeout(resolve, 500));
+                    folder_id: folder.id 
+                },
+                data.token,
+                "Folder",
+                `${folder.name} (ID: ${folder.id})`
+            );
         }
     }
 
@@ -53,35 +63,15 @@ export async function deleteAi(data: LoginResponse)
 
             for (const ai of rootAis) 
             {
-                try 
-                {
-                    const response = await fetch("https://leekwars.com/api/ai/delete", {
-                        method: "DELETE",
-                        headers: {
-                            "Content-Type": "application/json",
-                            Cookie: `token=${data.token}`,
-                        },
-                        body: JSON.stringify({
-                            ai_id: ai.id 
-                        }),
-                    });
-
-                    if (response.ok) 
+                await deleteEntity(
+                    "https://leekwars.com/api/ai/delete",
                     {
-                        console.log(`✓ AI '${ai.name}' (ID: ${ai.id}) deleted successfully`);
-                    }
-                    else 
-                    {
-                        console.error(`✗ Failed to delete AI '${ai.name}': ${response.status} ${response.statusText}`);
-                    }
-                }
-                catch (error) 
-                {
-                    console.error(`✗ Error deleting AI '${ai.name}':`, error);
-                }
-
-                // Wait to avoid rate limiting
-                await new Promise(resolve => setTimeout(resolve, 500));
+                        ai_id: ai.id 
+                    },
+                    data.token,
+                    "AI",
+                    `${ai.name} (ID: ${ai.id})`
+                );
             }
         }
     }

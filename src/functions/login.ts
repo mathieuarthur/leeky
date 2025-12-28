@@ -8,7 +8,6 @@ export async function login(): Promise<Response>
         throw new Error("Missing LW_LOGIN or LW_PASSWORD environment variables.");
     }
 
-    // Avoid embedding credentials in the URL; send them in the body instead
     return fetch("https://leekwars.com/api/farmer/login-token", {
         method: "POST",
         headers: {

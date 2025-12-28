@@ -1,10 +1,10 @@
-export async function emptyBin(token: string) 
+export async function emptyBin(token: string): Promise<void> 
 {
     const response = await fetch("https://leekwars.com/api/ai/bin", {
         method: "DELETE",
         headers: {
-            Cookie: `token=${token}`
-        }
+            Cookie: `token=${token}` 
+        },
     });
 
     if (response.ok) 
